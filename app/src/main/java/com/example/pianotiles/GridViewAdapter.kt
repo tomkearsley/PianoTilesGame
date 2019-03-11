@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 
-class GridViewAdapter(val context: Context, val rowofButtons: List<String>) : BaseAdapter(){
+class GridViewAdapter(val context: Context, val rowofButtons: List<PianoTile>) : BaseAdapter(){
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val view: View = LayoutInflater.from(context).inflate(R.layout.item_layout,parent,false)
 
@@ -18,11 +18,12 @@ class GridViewAdapter(val context: Context, val rowofButtons: List<String>) : Ba
     }
 
     override fun getItem(position: Int): Any {
-        return rowofButtons[position]
+        val truePosition = rowofButtons.size - position
+        return rowofButtons[truePosition]
     }
 
     override fun getItemId(position: Int): Long {
-        return position.toLong()
+        return rowofButtons.size - position.toLong()
     }
 
     override fun getCount(): Int {

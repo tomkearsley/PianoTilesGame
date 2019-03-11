@@ -13,14 +13,23 @@ class GridActivity: Activity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.grid)
 
-        val tiles = listOf<String>("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23")
+        val tiles = ArrayList<PianoTile>()
+
+        tiles.add(PianoTile("White",R.drawable.white_piano_tile))
+        tiles.add(PianoTile("White",R.drawable.white_piano_tile))
+        tiles.add(PianoTile("White",R.drawable.white_piano_tile))
+
 
         val adapter = GridViewAdapter(this,tiles)
 
         grid.adapter = adapter
+        startGame(currentScore)
+
+    }
+
+    fun startGame(currentScore : Int){
         grid.setOnItemClickListener{parent, view, position, id ->
             Toast.makeText(this,"Clicked Item : " + position, Toast.LENGTH_SHORT).show()
-
 
         }
     }
