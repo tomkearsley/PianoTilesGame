@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.grid.*
+import java.util.*
 
 class GridActivity: Activity(){
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,11 +14,20 @@ class GridActivity: Activity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.grid)
 
-        val tiles = ArrayList<PianoTile>()
+        val whiteTile = PianoTile("White",R.drawable.white_piano_tile)
+        val blackTile = PianoTile("Black",R.drawable.black_piano_tile)
+        val tileRow = ArrayList<PianoTile>()
+        tileRow.add(blackTile)
+        tileRow.add(whiteTile)
+        tileRow.add(whiteTile)
+        tileRow.add(whiteTile)
+        val tiles = ArrayList<ArrayList<PianoTile>>()
+        val tileIndexs = IntArray(4,0,1,2,3)
 
-        tiles.add(PianoTile("White",R.drawable.white_piano_tile))
-        tiles.add(PianoTile("White",R.drawable.white_piano_tile))
-        tiles.add(PianoTile("White",R.drawable.white_piano_tile))
+
+
+
+
 
 
         val adapter = GridViewAdapter(this,tiles)
@@ -29,8 +39,6 @@ class GridActivity: Activity(){
 
     fun startGame(currentScore : Int){
         grid.setOnItemClickListener{parent, view, position, id ->
-            Toast.makeText(this,"Clicked Item : " + position, Toast.LENGTH_SHORT).show()
-
         }
     }
 }
