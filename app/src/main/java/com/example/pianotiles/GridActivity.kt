@@ -21,8 +21,14 @@ class GridActivity: Activity(){
         tileRow.add(whiteTile)
         tileRow.add(whiteTile)
         tileRow.add(whiteTile)
-        val tiles = ArrayList<ArrayList<PianoTile>>()
-        val tileIndexs = IntArray(4,0,1,2,3)
+        val tiles = ArrayList<PianoTile>()
+        for (i in 1..5){
+            Collections.shuffle(tileRow)
+            tiles.addAll(tileRow)
+
+        }
+
+
 
 
 
@@ -40,5 +46,8 @@ class GridActivity: Activity(){
     fun startGame(currentScore : Int){
         grid.setOnItemClickListener{parent, view, position, id ->
         }
+    }
+
+    fun generateRow(){
     }
 }
