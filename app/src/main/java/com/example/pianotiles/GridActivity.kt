@@ -1,22 +1,28 @@
 package com.example.pianotiles
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.widget.AdapterView
+import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.grid.*
 import java.util.*
 
 class GridActivity: Activity(){
     val gameGrid = ArrayList<PianoTile>()
+    var currentScore = 0
+
 
     val tiles = ArrayList<ArrayList<PianoTile>>()
     val whiteTile = PianoTile("White",R.drawable.white_piano_tile)
     val blackTile = PianoTile("Black",R.drawable.black_piano_tile)
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        var currentScore = 0
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.grid)
         gameGrid.addAll(generateRow())
@@ -27,25 +33,29 @@ class GridActivity: Activity(){
 
 
 
+
+
         var adapter = GridViewAdapter(this,gameGrid)
-        startGame(currentScore)
+        startGame()
         grid.adapter = adapter
 
     }
 
-    fun startGame(currentScore : Int){
+    fun startGame(){
+        var scoreText:TextView = findViewById(R.id.currentScore)
         grid.setOnItemClickListener{parent, view, position, id ->
             val tile:PianoTile = grid.adapter.getItem(position) as PianoTile
-            println(tile)
-            if(tile.color == "Black")
+            if(tile.color == "Black" && position < 4)
             {
-                val column = position%4
-                val row = position/4
-                Toast.makeText(this,"row: $row, column: $column",Toast.LENGTH_SHORT).show()
+                currentScore++
+                scoreText.setText("Current Score: $currentScore")
                 deleteRow()
             } else
             {
-                Toast.makeText(this,"Game Over",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Game Over!",Toast.LENGTH_LONG).show()
+                val intent = Intent(this,GameOver::class.java)
+                intent.putExtra("userScore",currentScore.toString())
+                startActivity(intent)
             }
 
         }
@@ -65,6 +75,7 @@ class GridActivity: Activity(){
     {
         for (i in 0..3)
         {
+
             gameGrid.removeAt(i)
         }
         gameGrid.addAll(generateRow())

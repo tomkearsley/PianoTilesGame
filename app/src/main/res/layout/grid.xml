@@ -8,9 +8,18 @@
     android:weightSum="5"
     tools:context=".GridActivity">
 
+    <TextView
+        android:id="@+id/currentScore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Current Score: " />
+
     <GridView
         android:id="@+id/grid"
-        android:layout_width="wrap_content"
+        android:gravity="right"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
         android:numColumns="4" />
+
 </LinearLayout>
