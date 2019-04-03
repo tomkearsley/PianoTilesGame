@@ -25,9 +25,6 @@ class GridActivity: Activity(){
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.grid)
-        gameGrid.addAll(generateRow())
-        gameGrid.addAll(generateRow())
-        gameGrid.addAll(generateRow())
 
 
 
@@ -36,7 +33,7 @@ class GridActivity: Activity(){
 
 
         var adapter = GridViewAdapter(this,gameGrid)
-        startGame()
+        resetGrid()
         grid.adapter = adapter
 
     }
@@ -48,10 +45,11 @@ class GridActivity: Activity(){
             if(tile.color == "Black" && position < 4)
             {
                 currentScore++
-                scoreText.setText("Current Score: $currentScore")
+                scoreText.setText("$currentScore")
                 deleteRow()
             } else
             {
+                resetGrid()
                 Toast.makeText(this,"Game Over!",Toast.LENGTH_LONG).show()
                 val intent = Intent(this,GameOver::class.java)
                 intent.putExtra("userScore",currentScore.toString())
@@ -81,5 +79,16 @@ class GridActivity: Activity(){
         gameGrid.addAll(generateRow())
         var adapter = GridViewAdapter(this,gameGrid)
         grid.adapter = adapter
+    }
+
+    fun resetGrid(){
+        gameGrid.clear()
+        currentScore = 0
+
+        gameGrid.addAll(generateRow())
+        gameGrid.addAll(generateRow())
+        gameGrid.addAll(generateRow())
+        startGame()
+
     }
 }

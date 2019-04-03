@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">PianoTiles</string>
     <string name="hint_enter_name">Enter Name</string>
+    <string name="score_string">Current Score: </string>
+    <string name="email_result">Email Score?</string>
+    <string name="play_again">Play Again?</string>
+    <string name="submit_score">Submit Score</string>
+    <string name="your_score_was">Your Score Was:</string>
 </resources>
