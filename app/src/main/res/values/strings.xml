@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PianoTiles</string>
+    <string name="hint_enter_name">Enter Name</string>
 </resources>
