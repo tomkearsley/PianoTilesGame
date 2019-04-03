@@ -6,4 +6,7 @@
     <string name="play_again">Play Again?</string>
     <string name="submit_score">Submit Score</string>
     <string name="your_score_was">Your Score Was:</string>
+    <string name="play">Play</string>
+    <string name="leaderboard_button_text">Leaderboard</string>
+    <string name="app_title">Piano Tiles</string>
 </resources>
