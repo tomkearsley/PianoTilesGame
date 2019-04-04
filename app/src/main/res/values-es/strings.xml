@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">PianoTiles</string>
+    <string name="hint_enter_name">Ingrese su nombre</string>
+    <string name="score_string">Puntuación actual:</string>
+    <string name="email_result">Correo electrónico Score?</string>
+    <string name="play_again">Play Again?</string>
+    <string name="submit_score">¿Juega de nuevo?</string>
+    <string name="your_score_was">Tu puntuación fue:</string>
+    <string name="play">Jugar</string>
+    <string name="leaderboard_button_text">Tabla de líderes</string>
+    <string name="app_title">Azulejos de piano</string>
+</resources>
