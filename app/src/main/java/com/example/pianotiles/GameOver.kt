@@ -2,15 +2,8 @@ package com.example.pianotiles
 
 import android.app.Activity
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.widget.*
-import kotlinx.android.synthetic.main.game_over.*
-import org.json.JSONObject
-import java.io.BufferedInputStream
-import java.net.URL
-import java.nio.charset.Charset
-import javax.net.ssl.HttpsURLConnection
 import kotlin.random.Random
 
 class GameOver: Activity() {

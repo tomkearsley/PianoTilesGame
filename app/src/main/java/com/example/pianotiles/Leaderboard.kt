@@ -3,13 +3,10 @@ package com.example.pianotiles
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
-import android.util.JsonReader
 import android.util.JsonWriter
 import android.widget.ArrayAdapter
 import android.widget.ListView
-import kotlinx.android.synthetic.main.leaderboard.*
 import java.io.FileNotFoundException
-import java.io.InputStreamReader
 import java.io.OutputStreamWriter
 
 class Leaderboard: Activity() {

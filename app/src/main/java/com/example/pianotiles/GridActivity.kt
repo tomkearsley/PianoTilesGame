@@ -3,10 +3,6 @@ package com.example.pianotiles
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.view.View
-import android.widget.AdapterView
 import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.grid.*
