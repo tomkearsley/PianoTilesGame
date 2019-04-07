@@ -9,4 +9,5 @@
     <string name="play">Jugar</string>
     <string name="leaderboard_button_text">Tabla de líderes</string>
     <string name="app_title">Azulejos de piano</string>
+    <string name="news_headline">Titular de noticias al azar:</string>
 </resources>

@@ -45,7 +45,6 @@ class HeadlinesDownloader(val activity: GameOver) : AsyncTask<URL, Void, List<He
 
     override fun onPostExecute(headlines: List<Headline>) {
         super.onPostExecute(headlines)
-        Toast.makeText(activity, headlines.joinToString(","), Toast.LENGTH_SHORT).show()
     }
 
 

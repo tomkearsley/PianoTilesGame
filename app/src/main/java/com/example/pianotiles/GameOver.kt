@@ -14,6 +14,7 @@ import java.io.BufferedInputStream
 import java.net.URL
 import java.nio.charset.Charset
 import javax.net.ssl.HttpsURLConnection
+import kotlin.random.Random
 
 class GameOver: Activity() {
 
@@ -64,7 +65,10 @@ class GameOver: Activity() {
             finish()
         }
 
-        HeadlinesDownloader(this).execute()
+        var headlines = HeadlinesDownloader(this).execute().get()
+        val random = Random.nextInt(0,9)
+        val headlineNote = getString(R.string.news_headline)
+        headlineText.setText("$headlineNote " + headlines[random].text)
 
 
 

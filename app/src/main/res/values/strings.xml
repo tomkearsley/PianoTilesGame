@@ -8,5 +8,6 @@
     <string name="your_score_was">Your Score Was:</string>
     <string name="play">Play</string>
     <string name="leaderboard_button_text">Leaderboard</string>
+    <string name="news_headline">Random News Headline: </string>
     <string name="app_title">Piano Tiles</string>
 </resources>
