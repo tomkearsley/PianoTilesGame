@@ -27,6 +27,7 @@ class GameOver: Activity() {
         setContentView(R.layout.game_over)
         val scoreField:TextView = findViewById(R.id.userScore)
         val userScore: String = intent.getStringExtra("userScore")
+        println(userScore)
         scoreField.setText(userScore)
 
         val submitScore : Button = findViewById(R.id.submitButton)
