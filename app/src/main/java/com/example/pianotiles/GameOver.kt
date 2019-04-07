@@ -17,6 +17,7 @@ class GameOver: Activity() {
 
     val KEY = "e7e05678509248ceb66524f05ad67670"
     val parameters = mapOf("sources" to "abc-news","apiKey" to KEY)
+    var leaderboard = ArrayList<String>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +25,6 @@ class GameOver: Activity() {
         setContentView(R.layout.game_over)
         val scoreField:TextView = findViewById(R.id.userScore)
         val userScore: String = intent.getStringExtra("userScore")
-        println(userScore)
         scoreField.setText(userScore)
 
         val playAgain : Button = findViewById(R.id.playAgain)
@@ -39,11 +39,11 @@ class GameOver: Activity() {
                 if (name != null)
                 {
                     Toast.makeText(this,"Score Added!",Toast.LENGTH_SHORT).show()
+                    leaderboard.add("${name.text}: $userScore")
                     intent = Intent(this,Leaderboard::class.java)
-                    println(name.text)
-                    intent.putExtra("score","${name.text}: $userScore")
+                    intent.putStringArrayListExtra("leaderboard",leaderboard)
                     startActivity(intent)
-                    finish()
+
                 }
             } else{
                 // Do Nothing.
@@ -72,4 +72,5 @@ class GameOver: Activity() {
 
 
     }
+
 }

@@ -42,17 +42,19 @@ class GridActivity: Activity(){
         var scoreText:TextView = findViewById(R.id.currentScore)
         grid.setOnItemClickListener{parent, view, position, id ->
             val tile:PianoTile = grid.adapter.getItem(position) as PianoTile
-            if(tile.color == "Black" && position < 4)
+            if(tile.color == "Black")
             {
                 currentScore++
-                scoreText.setText("$currentScore")
+                val currentScoreLabel = getString(R.string.score_string)
+                scoreText.setText("$currentScoreLabel"+ " $currentScore")
                 deleteRow()
             } else
             {
-                resetGrid()
+
                 Toast.makeText(this,"Game Over!",Toast.LENGTH_LONG).show()
                 val intent = Intent(this,GameOver::class.java)
                 intent.putExtra("userScore",currentScore.toString())
+                resetGrid()
                 startActivity(intent)
             }
 

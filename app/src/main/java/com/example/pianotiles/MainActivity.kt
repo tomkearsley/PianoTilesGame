@@ -1,6 +1,7 @@
 package com.example.pianotiles
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -36,7 +37,6 @@ class MainActivity : AppCompatActivity(){
 
 
     }
-
 
 
 
