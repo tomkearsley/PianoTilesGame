@@ -14,7 +14,6 @@ class HeadlinesDownloader(val activity: GameOver) : AsyncTask<URL, Void, List<He
     val KEY = "e7e05678509248ceb66524f05ad67670"
     val parameters = mapOf("sources" to "bbc-news", "apiKey" to KEY)
     val url = parameterizeUrl("https://newsapi.org/v2/top-headlines", parameters)
-    var firstHeadline:Headline = Headline()
     fun parameterizeUrl(url: String, parameters: Map<String, String>): URL {
         val builder = Uri.parse(url).buildUpon()
         parameters.forEach { key, value -> builder.appendQueryParameter(key, value) }
@@ -46,12 +45,7 @@ class HeadlinesDownloader(val activity: GameOver) : AsyncTask<URL, Void, List<He
 
     override fun onPostExecute(headlines: List<Headline>) {
         super.onPostExecute(headlines)
-        firstHeadline = headlines[0]
         Toast.makeText(activity, headlines.joinToString(","), Toast.LENGTH_SHORT).show()
-    }
-
-    fun get_first_headline() : Headline{
-        return firstHeadline
     }
 
 
