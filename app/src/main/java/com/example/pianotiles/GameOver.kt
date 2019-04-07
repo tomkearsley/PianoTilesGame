@@ -4,10 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import kotlinx.android.synthetic.main.game_over.*
 import org.json.JSONObject
 import java.io.BufferedInputStream
@@ -30,14 +27,14 @@ class GameOver: Activity() {
         println(userScore)
         scoreField.setText(userScore)
 
-        val submitScore : Button = findViewById(R.id.submitButton)
         val playAgain : Button = findViewById(R.id.playAgain)
         val emailScore : Button = findViewById(R.id.emailScore)
+        val submitScore : ToggleButton = findViewById(R.id.submitButton)
 
         val headlineText : TextView = findViewById(R.id.headlineText)
 
-
-        submitScore.setOnClickListener{
+        submitScore.setOnCheckedChangeListener {_, isToggled ->
+            if (isToggled){
                 val name = findViewById<EditText>(R.id.nameEntry)
                 if (name != null)
                 {
@@ -48,9 +45,10 @@ class GameOver: Activity() {
                     startActivity(intent)
                     finish()
                 }
-
+            } else{
+                // Do Nothing.
+            }
         }
-
         emailScore.setOnClickListener{
             val emailIntent = Intent(Intent.ACTION_SEND)
             emailIntent.putExtra(Intent.EXTRA_TEXT,"I scored $userScore" +
